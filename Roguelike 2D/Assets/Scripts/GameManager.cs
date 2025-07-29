@@ -2,17 +2,30 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    
     [SerializeField]
     private JugadorController jugador;
     
     [SerializeField]
     private MapaManager mapa;
 
-    private TurnosManager turnosManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TurnosManager TurnosManager { get; private set;}
+    
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+      
+        Instance = this;
+    }
+    
     void Start()
     {
-        turnosManager = new TurnosManager();
+        TurnosManager = new TurnosManager();
         mapa.GenerarMapa();
         jugador.Spawn(mapa, new Vector2Int(1,1));
     }
