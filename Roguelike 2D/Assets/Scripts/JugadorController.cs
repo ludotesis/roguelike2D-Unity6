@@ -45,6 +45,7 @@ public class JugadorController : MonoBehaviour
 
             if (datosCelda != null && datosCelda.GetPasable())
             {
+                GameManager.Instance.TurnosManager.SiguienteTurno();
                 Mover(siguienteCelda);
             }
         }
