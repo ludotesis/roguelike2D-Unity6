@@ -10,9 +10,7 @@ public class JugadorController : MonoBehaviour
     public void Spawn(MapaManager nuevoMapa, Vector2Int nuevaCelda)
     {
         mapa = nuevoMapa;
-        celda = nuevaCelda;
-
-        transform.position = mapa.ObtenerPosicionCelda(celda);
+        Mover(nuevaCelda);
     }
 
     private void Update()
@@ -47,9 +45,14 @@ public class JugadorController : MonoBehaviour
 
             if (datosCelda != null && datosCelda.GetPasable())
             {
-                celda = siguienteCelda;
-                transform.position = mapa.ObtenerPosicionCelda(celda);
+                Mover(siguienteCelda);
             }
         }
+    }
+
+    public void Mover(Vector2Int nuevaCelda)
+    {
+        celda = nuevaCelda;
+        transform.position = mapa.ObtenerPosicionCelda(celda);
     }
 }
