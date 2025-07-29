@@ -18,12 +18,13 @@ public class MapaManager : MonoBehaviour
     private Tile[] paredTiles;
     
     private Tilemap mapaTilemap;
-    private Tilemap grilla;
+    private Grid grilla;
     private Celda[,] datosMapa;
 
     private void Awake()
     {
         mapaTilemap = GetComponentInChildren<Tilemap>();
+        grilla = GetComponent<Grid>();
         datosMapa = new Celda[ancho, alto]; 
     }
 
