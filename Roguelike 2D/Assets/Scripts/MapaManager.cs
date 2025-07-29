@@ -18,6 +18,7 @@ public class MapaManager : MonoBehaviour
     private Tile[] paredTiles;
     
     private Tilemap mapaTilemap;
+    private Tilemap grilla;
     private Celda[,] datosMapa;
 
     private void Awake()
@@ -54,6 +55,11 @@ public class MapaManager : MonoBehaviour
                 mapaTilemap.SetTile(new Vector3Int(x,y,0) , tile);
             }
         }
+    }
+    
+    public Vector3 ObtenerPosicionCelda(Vector2Int celda)
+    {
+        return grilla.GetCellCenterWorld((Vector3Int)celda);
     }
 
 }

@@ -4,12 +4,14 @@ public class JugadorController : MonoBehaviour
 {
     
     private MapaManager mapa;
-    private Vector2Int posicionCelda;
+    private Vector2Int celda;
 
-    public void Spawn(MapaManager nuevoMapa, Vector2Int nuevaPosicionCelda)
+    public void Spawn(MapaManager nuevoMapa, Vector2Int nuevaCelda)
     {
         mapa = nuevoMapa;
-        posicionCelda = nuevaPosicionCelda;
+        celda = nuevaCelda;
+
+        transform.position = mapa.ObtenerPosicionCelda(celda);
     }
    
 }
