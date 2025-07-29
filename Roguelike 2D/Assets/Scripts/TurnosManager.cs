@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TurnosManager
 {
+    public event System.Action EnTurno;
+    
     private int turnos;
 
     public TurnosManager()
@@ -12,6 +14,7 @@ public class TurnosManager
     public void SiguienteTurno()
     {
         turnos++;
+        EnTurno?.Invoke();
         Debug.Log("El turno actual es "+turnos);
     }
 }
