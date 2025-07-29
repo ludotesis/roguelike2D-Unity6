@@ -23,6 +23,7 @@ public class MapaManager : MonoBehaviour
     private void Awake()
     {
         mapaTilemap = GetComponentInChildren<Tilemap>();
+        datosMapa = new Celda[ancho, alto]; 
     }
 
     void Start()
@@ -37,7 +38,8 @@ public class MapaManager : MonoBehaviour
             for (int x = 0; x < ancho; x++)
             {
                 Tile tile;
-
+                datosMapa[x, y] = new Celda();
+                
                 if (x == 0 || y == 0 || x == ancho - 1 || y == alto - 1)
                 {
                     tile = paredTiles[Random.Range(0,paredTiles.Length)];
