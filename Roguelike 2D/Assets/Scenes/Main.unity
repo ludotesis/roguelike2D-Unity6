@@ -526,6 +526,8 @@ MonoBehaviour:
   sueloTiles:
   - {fileID: 11400000, guid: 4970f75032fa3b7438bd96ddbc99df8f, type: 2}
   - {fileID: 11400000, guid: 3501f2e8919a38a4fbd6d7e969dbbb7e, type: 2}
+  paredTiles:
+  - {fileID: 11400000, guid: fe962359a5cc0564e9b6135292d511d6, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
