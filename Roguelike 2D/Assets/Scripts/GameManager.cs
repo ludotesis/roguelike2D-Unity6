@@ -14,6 +14,6 @@ public class GameManager : MonoBehaviour
     {
         turnosManager = new TurnosManager();
         mapa.GenerarMapa();
-        jugador.Spawn(mapa, new Vector2Int(2,2));
+        jugador.Spawn(mapa, new Vector2Int(1,1));
     }
 }
