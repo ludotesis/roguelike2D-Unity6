@@ -67,5 +67,15 @@ public class MapaManager : MonoBehaviour
     {
         return grilla.GetCellCenterWorld((Vector3Int)celda);
     }
+    
+    public Celda ObtenerDatosCelda(Vector2Int celda)
+    {
+        if (celda.x < 0 || celda.x >= ancho ||celda.y < 0 || celda.y >= alto)
+        {
+            return null;
+        }
+
+        return datosMapa[celda.x, celda.y];
+    }
 
 }

@@ -22,25 +22,34 @@ public class JugadorController : MonoBehaviour
 
         if (Keyboard.current.upArrowKey.wasPressedThisFrame)
         {
-            celda.y += 1;
+            siguienteCelda.y += 1;
             movido = true;
         }
         else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
         {
-            celda.y -= 1;
+            siguienteCelda.y -= 1;
             movido = true;
         }
         else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
         {
-            celda.x += 1;
+            siguienteCelda.x += 1;
             movido = true;
         }
         else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
         {
-            celda.x -= 1;
+            siguienteCelda.x -= 1;
             movido = true;
         }
-        
-        transform.position = mapa.ObtenerPosicionCelda(siguienteCelda);
+
+        if (movido)
+        {
+            Celda datosCelda = mapa.ObtenerDatosCelda(siguienteCelda);
+
+            if (datosCelda != null && datosCelda.GetPasable())
+            {
+                celda = siguienteCelda;
+                transform.position = mapa.ObtenerPosicionCelda(celda);
+            }
+        }
     }
 }
