@@ -18,6 +18,7 @@ public class MapaManager : MonoBehaviour
     private Tile[] paredTiles;
     
     private Tilemap mapaTilemap;
+    private Celda[,] datosMapa;
 
     private void Awake()
     {
@@ -40,10 +41,12 @@ public class MapaManager : MonoBehaviour
                 if (x == 0 || y == 0 || x == ancho - 1 || y == alto - 1)
                 {
                     tile = paredTiles[Random.Range(0,paredTiles.Length)];
+                    datosMapa[x, y].SetPasable(false);
                 }
                 else
                 {
                     tile = sueloTiles[Random.Range(0, sueloTiles.Length)];
+                    datosMapa[x, y].SetPasable(true);
                 }
                 
                 mapaTilemap.SetTile(new Vector3Int(x,y,0) , tile);
