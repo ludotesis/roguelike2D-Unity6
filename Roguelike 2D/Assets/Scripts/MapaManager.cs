@@ -17,12 +17,17 @@ public class MapaManager : MonoBehaviour
     [SerializeField]
     private Tile[] paredTiles;
     
+    [SerializeField]
+    private JugadorController jugador;
+    
     private Tilemap mapaTilemap;
+    private Grid grilla;
     private Celda[,] datosMapa;
 
     private void Awake()
     {
         mapaTilemap = GetComponentInChildren<Tilemap>();
+        grilla = GetComponent<Grid>();
         datosMapa = new Celda[ancho, alto]; 
     }
 
@@ -54,6 +59,23 @@ public class MapaManager : MonoBehaviour
                 mapaTilemap.SetTile(new Vector3Int(x,y,0) , tile);
             }
         }
+        
+        jugador.Spawn(this, new Vector2Int(2,2));
+    }
+    
+    public Vector3 ObtenerPosicionCelda(Vector2Int celda)
+    {
+        return grilla.GetCellCenterWorld((Vector3Int)celda);
+    }
+    
+    public Celda ObtenerDatosCelda(Vector2Int celda)
+    {
+        if (celda.x < 0 || celda.x >= ancho ||celda.y < 0 || celda.y >= alto)
+        {
+            return null;
+        }
+
+        return datosMapa[celda.x, celda.y];
     }
 
 }
