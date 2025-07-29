@@ -473,8 +473,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1515595251}
   - component: {fileID: 1515595250}
+  - component: {fileID: 1515595252}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: MapaManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,6 +509,23 @@ Transform:
   - {fileID: 559235205}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515595252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515595249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc8e5b323195a549901bc79ccf6afc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ancho: 8
+  alto: 8
+  sueloTiles:
+  - {fileID: 11400000, guid: 4970f75032fa3b7438bd96ddbc99df8f, type: 2}
+  - {fileID: 11400000, guid: 3501f2e8919a38a4fbd6d7e969dbbb7e, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
