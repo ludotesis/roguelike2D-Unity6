@@ -679,6 +679,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3501f2e8919a38a4fbd6d7e969dbbb7e, type: 2}
   paredTiles:
   - {fileID: 11400000, guid: fe962359a5cc0564e9b6135292d511d6, type: 2}
+  cantidadComida: 5
+  objetoComida: {fileID: 8638214201694921488, guid: 376db743b77a4bc48ac4d0f202b06de2, type: 3}
 --- !u!1 &1667823811
 GameObject:
   m_ObjectHideFlags: 0

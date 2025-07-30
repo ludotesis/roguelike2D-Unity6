@@ -17,7 +17,12 @@ public class MapaManager : MonoBehaviour
     [SerializeField]
     private Tile[] paredTiles;
     
-   
+    [SerializeField]
+    [Range(5,20)]
+    private int  cantidadComida;
+    
+    [SerializeField]
+    private GameObject objetoComida;
     
     private Tilemap mapaTilemap;
     private Grid grilla;
@@ -53,8 +58,27 @@ public class MapaManager : MonoBehaviour
                 mapaTilemap.SetTile(new Vector3Int(x,y,0) , tile);
             }
         }
+
+        GenerarComida();
     }
-    
+
+    void GenerarComida()
+    {
+        for (int i = 0; i < cantidadComida; ++i)
+        {
+            int randomX = Random.Range(1, ancho-1);
+            int randomY = Random.Range(1, alto -1);
+            
+            Celda celda = datosMapa[randomX, randomY];
+            
+            if (celda.GetPasable() && celda.Vacia())
+            {
+                GameObject newFood = Instantiate(objetoComida);
+                objetoComida.transform.position = ObtenerPosicionCelda(new Vector2Int(randomX, randomY));
+                celda.AsignarObjeto(objetoComida);
+            }
+        }
+    }
     public Vector3 ObtenerPosicionCelda(Vector2Int celda)
     {
         return grilla.GetCellCenterWorld((Vector3Int)celda);
@@ -69,5 +93,6 @@ public class MapaManager : MonoBehaviour
 
         return datosMapa[celda.x, celda.y];
     }
+    
 
 }
