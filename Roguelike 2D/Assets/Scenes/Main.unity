@@ -726,6 +726,7 @@ MonoBehaviour:
   jugador: {fileID: 31760773}
   mapa: {fileID: 1515595252}
   comida: 50
+  juegoUI: {fileID: 977708518}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
