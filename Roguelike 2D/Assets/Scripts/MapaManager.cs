@@ -78,9 +78,9 @@ public class MapaManager : MonoBehaviour
             if (celda.Vacia())
             {
                 celdasDisponibles.RemoveAt(indiceAleatorio);
-                GameObject newFood = Instantiate(objetoComida);
-                objetoComida.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
-                celda.AsignarObjeto(objetoComida);
+                GameObject nuevaComida = Instantiate(objetoComida);
+                nuevaComida.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
+                celda.AsignarObjeto(nuevaComida);
             }
         }
     }

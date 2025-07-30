@@ -3,7 +3,9 @@ using UnityEngine;
 public class Celda
 {
     private bool pasable;
-    private GameObject objeto;
+    private ObjetoCelda objeto;
+
+    public ObjetoCelda Objeto => objeto;
 
     public void SetPasable(bool estado)
     {
@@ -17,11 +19,14 @@ public class Celda
 
     public void AsignarObjeto(GameObject nuevoObjeto)
     {
-        objeto = nuevoObjeto;
+        if (nuevoObjeto.TryGetComponent<ObjetoCelda>(out ObjetoCelda objetoCelda))
+        {
+            objeto = objetoCelda;
+        }
     }
     
     public bool Vacia()
     {
-        return objeto == null;
+        return Objeto == null;
     }
 }

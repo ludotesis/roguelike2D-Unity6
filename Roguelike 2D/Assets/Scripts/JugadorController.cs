@@ -47,6 +47,11 @@ public class JugadorController : MonoBehaviour
             {
                 GameManager.Instance.TurnosManager.SiguienteTurno();
                 Mover(siguienteCelda);
+
+                if (!datosCelda.Vacia())
+                {
+                    datosCelda.Objeto.InteraccionJugador();
+                }
             }
         }
     }
