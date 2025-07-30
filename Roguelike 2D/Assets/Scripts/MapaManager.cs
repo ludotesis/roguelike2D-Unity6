@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -27,12 +28,14 @@ public class MapaManager : MonoBehaviour
     private Tilemap mapaTilemap;
     private Grid grilla;
     private Celda[,] datosMapa;
+    private List<Vector2Int> celdasDisponibles;
 
     private void Awake()
     {
         mapaTilemap = GetComponentInChildren<Tilemap>();
         grilla = GetComponent<Grid>();
         datosMapa = new Celda[ancho, alto]; 
+        celdasDisponibles = new List<Vector2Int>();
     }
 
     public void GenerarMapa()
@@ -53,12 +56,13 @@ public class MapaManager : MonoBehaviour
                 {
                     tile = sueloTiles[Random.Range(0, sueloTiles.Length)];
                     datosMapa[x, y].SetPasable(true);
+                    celdasDisponibles.Add(new Vector2Int(x, y));
                 }
                 
                 mapaTilemap.SetTile(new Vector3Int(x,y,0) , tile);
             }
         }
-
+        celdasDisponibles.Remove(new Vector2Int(1, 1));
         GenerarComida();
     }
 
@@ -66,15 +70,16 @@ public class MapaManager : MonoBehaviour
     {
         for (int i = 0; i < cantidadComida; ++i)
         {
-            int randomX = Random.Range(1, ancho-1);
-            int randomY = Random.Range(1, alto -1);
+            int indiceAleatorio = Random.Range(0, celdasDisponibles.Count);
+            Vector2Int celdaDisponible = celdasDisponibles[indiceAleatorio];
             
-            Celda celda = datosMapa[randomX, randomY];
+            Celda celda = datosMapa[celdaDisponible.x, celdaDisponible.y];
             
-            if (celda.GetPasable() && celda.Vacia())
+            if (celda.Vacia())
             {
+                celdasDisponibles.RemoveAt(indiceAleatorio);
                 GameObject newFood = Instantiate(objetoComida);
-                objetoComida.transform.position = ObtenerPosicionCelda(new Vector2Int(randomX, randomY));
+                objetoComida.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
                 celda.AsignarObjeto(objetoComida);
             }
         }
