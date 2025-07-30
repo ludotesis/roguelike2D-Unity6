@@ -45,6 +45,6 @@ public class GameManager : MonoBehaviour
     void RespuestaNuevoTurno()
     {
         comida--;
-        Debug.Log("La comida actual es "+comida);
+        comidaLabel.text = "Comida: " + comida;
     }
 }
