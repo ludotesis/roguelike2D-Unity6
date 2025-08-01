@@ -17,12 +17,9 @@ public class Celda
         return pasable;
     }
 
-    public void AsignarObjeto(GameObject nuevoObjeto)
+    public void AsignarObjeto(ObjetoCelda nuevoObjeto)
     {
-        if (nuevoObjeto.TryGetComponent<ObjetoCelda>(out ObjetoCelda objetoCelda))
-        {
-            objeto = objetoCelda;
-        }
+        objeto = nuevoObjeto;
     }
     
     public bool Vacia()

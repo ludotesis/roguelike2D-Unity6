@@ -23,10 +23,10 @@ public class MapaManager : MonoBehaviour
     private int  cantidadComida;
     
     [SerializeField]
-    private GameObject[] objetosComida;
+    private ObjetoComida[] objetosComida;
     
     [SerializeField]
-    private GameObject[] objetosObstaculos;
+    private ObjetoObstaculo[] objetosObstaculos;
     
     [SerializeField]
     [Range(4,16)]
@@ -90,7 +90,7 @@ public class MapaManager : MonoBehaviour
             if (celda.Vacia())
             {
                 celdasDisponibles.RemoveAt(indiceAleatorio);
-                GameObject nuevaComida = Instantiate(objetosComida[Random.Range(0,objetosComida.Length)]);
+                ObjetoComida nuevaComida = Instantiate(objetosComida[Random.Range(0,objetosComida.Length)]);
                 nuevaComida.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
                 celda.AsignarObjeto(nuevaComida);
             }
@@ -111,7 +111,8 @@ public class MapaManager : MonoBehaviour
             if (celda.Vacia())
             {
                 celdasDisponibles.RemoveAt(indiceAleatorio);
-                GameObject nuevaPared = Instantiate(objetosObstaculos[Random.Range(0,objetosObstaculos.Length)]);
+                ObjetoObstaculo nuevaPared = Instantiate(objetosObstaculos[Random.Range(0,objetosObstaculos.Length)]);
+                nuevaPared.Iniciar(celdaDisponible);
                 nuevaPared.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
                 celda.AsignarObjeto(nuevaPared);
             }

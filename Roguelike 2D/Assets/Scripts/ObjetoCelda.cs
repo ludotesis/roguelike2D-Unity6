@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class ObjetoCelda : MonoBehaviour
 {
-    //Called when the player enter the cell in which that object is
+    protected Vector2Int coordenada;
+    public virtual void Iniciar(Vector2Int nuevaCoordena)
+    {
+        coordenada = nuevaCoordena;
+    }
+    
     public virtual void InteraccionJugador()
     {
         Destroy(gameObject);
