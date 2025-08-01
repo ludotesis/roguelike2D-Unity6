@@ -563,6 +563,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &977708517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977708519}
+  - component: {fileID: 977708518}
+  m_Layer: 5
+  m_Name: GameUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &977708518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977708517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: c02271f8ddda7ce4099500f1ca9ad1db, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 065ae5d633e495f4c9db0b60669f18f6, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &977708519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977708517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1515595249
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +679,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3501f2e8919a38a4fbd6d7e969dbbb7e, type: 2}
   paredTiles:
   - {fileID: 11400000, guid: fe962359a5cc0564e9b6135292d511d6, type: 2}
+  cantidadComida: 5
+  objetosComida:
+  - {fileID: 8638214201694921488, guid: 376db743b77a4bc48ac4d0f202b06de2, type: 3}
+  - {fileID: 2900218435260388500, guid: 5249988aa82f68644a499844bd6b35be, type: 3}
+  - {fileID: 365469163140514487, guid: 397a53b76823f1644a41e0368db62461, type: 3}
 --- !u!1 &1667823811
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugador: {fileID: 31760773}
   mapa: {fileID: 1515595252}
+  comida: 50
+  juegoUI: {fileID: 977708518}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -683,3 +741,4 @@ SceneRoots:
   - {fileID: 1515595251}
   - {fileID: 31760771}
   - {fileID: 1667823812}
+  - {fileID: 977708519}
