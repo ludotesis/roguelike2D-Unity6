@@ -23,7 +23,7 @@ public class MapaManager : MonoBehaviour
     private int  cantidadComida;
     
     [SerializeField]
-    private GameObject objetoComida;
+    private GameObject[] objetosComida;
     
     private Tilemap mapaTilemap;
     private Grid grilla;
@@ -78,7 +78,7 @@ public class MapaManager : MonoBehaviour
             if (celda.Vacia())
             {
                 celdasDisponibles.RemoveAt(indiceAleatorio);
-                GameObject nuevaComida = Instantiate(objetoComida);
+                GameObject nuevaComida = Instantiate(objetosComida[Random.Range(0,objetosComida.Length)]);
                 nuevaComida.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
                 celda.AsignarObjeto(nuevaComida);
             }
