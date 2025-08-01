@@ -44,7 +44,12 @@ public class GameManager : MonoBehaviour
 
     void RespuestaNuevoTurno()
     {
-        comida--;
+        ModificarComida(-1);
+    }
+
+    public void ModificarComida(int cantidadComida)
+    {
+        comida += cantidadComida;
         comidaLabel.text = "Comida: " + comida;
     }
 }
