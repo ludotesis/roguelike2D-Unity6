@@ -25,6 +25,17 @@ public class MapaManager : MonoBehaviour
     [SerializeField]
     private GameObject[] objetosComida;
     
+    [SerializeField]
+    private GameObject[] objetosObstaculos;
+    
+    [SerializeField]
+    [Range(4,16)]
+    private int  minimoParedes;
+    
+    [SerializeField]
+    [Range(4,16)]
+    private int  maximoParedes;
+    
     private Tilemap mapaTilemap;
     private Grid grilla;
     private Celda[,] datosMapa;
@@ -63,6 +74,7 @@ public class MapaManager : MonoBehaviour
             }
         }
         celdasDisponibles.Remove(new Vector2Int(1, 1));
+        GenerarObstaculos();
         GenerarComida();
     }
 
@@ -84,6 +96,28 @@ public class MapaManager : MonoBehaviour
             }
         }
     }
+
+    private void GenerarObstaculos()
+    {
+        int cantidadParedes = Random.Range(minimoParedes, maximoParedes);
+        
+        for (int i = 0; i < cantidadParedes; ++i)
+        {
+            int indiceAleatorio = Random.Range(0, celdasDisponibles.Count);
+            Vector2Int celdaDisponible = celdasDisponibles[indiceAleatorio];
+
+            Celda celda = datosMapa[celdaDisponible.x, celdaDisponible.y];
+            
+            if (celda.Vacia())
+            {
+                celdasDisponibles.RemoveAt(indiceAleatorio);
+                GameObject nuevaPared = Instantiate(objetosObstaculos[Random.Range(0,objetosObstaculos.Length)]);
+                nuevaPared.transform.position = ObtenerPosicionCelda(new Vector2Int(celdaDisponible.x, celdaDisponible.y));
+                celda.AsignarObjeto(nuevaPared);
+            }
+        }
+    }
+    
     public Vector3 ObtenerPosicionCelda(Vector2Int celda)
     {
         return grilla.GetCellCenterWorld((Vector3Int)celda);
